@@ -5,16 +5,16 @@ package com.example.mym.crowdfunding.model;
  * Created by Mert on 6/11/2016.
  */
 public class SchoolsEntity {
-    private int schoolsId;
+    private int schools_id;
     private String name;
     private String city;
 
-    public int getSchoolsId() {
-        return schoolsId;
+    public int getSchools_id() {
+        return schools_id;
     }
 
-    public void setSchoolsId(int schoolsId) {
-        this.schoolsId = schoolsId;
+    public void setSchools_id(int schools_id) {
+        this.schools_id = schools_id;
     }
 
     public String getName() {
@@ -40,7 +40,7 @@ public class SchoolsEntity {
 
         SchoolsEntity that = (SchoolsEntity) o;
 
-        if (schoolsId != that.schoolsId) return false;
+        if (schools_id != that.schools_id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         return city != null ? city.equals(that.city) : that.city == null;
 
@@ -48,7 +48,7 @@ public class SchoolsEntity {
 
     @Override
     public int hashCode() {
-        int result = schoolsId;
+        int result = schools_id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         return result;

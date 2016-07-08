@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+    android:background="@drawable/project_detail_text_background">
+
+    <TableLayout android:id="@+id/tableLayout" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent"
+            android:layout_marginBottom="-7dp">
+
+            <TextView android:id="@+id/project_detail_price" android:layout_width="0dp"
+                android:layout_height="34dp" android:layout_column="0" android:layout_gravity="center"
+                android:layout_weight="33" android:gravity="center"
+                android:text="0_0" android:textColor="@color/colorAccent" android:textSize="24sp" />
+
+            <TextView android:id="@+id/project_detail_funded" android:layout_width="0dp"
+                android:layout_height="34dp" android:layout_column="1" android:layout_gravity="center"
+                android:layout_marginLeft="1dp" android:layout_weight="33" android:gravity="center"
+                android:text="0_1" android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+            <TextView android:id="@+id/project_detail_togo" android:layout_width="0dp"
+                android:layout_height="34dp" android:layout_column="2" android:layout_gravity="center"
+                android:layout_marginLeft="1dp" android:layout_weight="33"
+                android:gravity="center" android:text="0_2" android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent"
+            android:baselineAligned="false">
+
+            <TextView android:layout_width="0dp" android:layout_height="34dp"
+                android:layout_column="0" android:layout_gravity="center"
+                android:layout_weight="33" android:gravity="center"
+                android:text="@string/price" android:textColor="@color/colorAccent" android:textSize="20sp" />
+
+            <TextView android:layout_width="0dp" android:layout_height="34dp"
+                android:layout_column="1" android:layout_gravity="center"
+                android:layout_marginLeft="1dp" android:layout_weight="33" android:gravity="center"
+                android:text="@string/funded" android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+            <TextView android:layout_width="0dp" android:layout_height="34dp"
+                android:layout_column="2" android:layout_gravity="center"
+                android:layout_marginLeft="1dp" android:layout_weight="33" android:gravity="center"
+                android:text="@string/togo" android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

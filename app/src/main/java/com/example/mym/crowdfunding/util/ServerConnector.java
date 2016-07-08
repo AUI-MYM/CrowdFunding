@@ -1,6 +1,9 @@
 package com.example.mym.crowdfunding.util;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -9,8 +12,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 
 /**
  * Created by Mert on 5/30/2016.
@@ -18,7 +23,11 @@ import java.nio.charset.Charset;
 
 public class ServerConnector {
     private static ServerConnector ourInstance = new ServerConnector();
-    private static final String server_url = "http://10.18.3.196/cf-master/index.php/";
+    private static final String server_ip = "http://10.18.3.177";
+    //private static final String server_ip = "http://www.airshowroom.com";
+    public static final String server_url = server_ip + "/cf/index.php/";
+    public static final String server_image_url = server_ip + "/cf/pic/";
+    public static final String server_avatar_url = server_ip + "/cf/avatar/";
 
     public static ServerConnector getInstance() {
         return ourInstance;
@@ -56,6 +65,23 @@ public class ServerConnector {
         return null;
     }
 
+    public ArrayList<Bitmap> getImagesFromURLList(String[] urls) {
+        ArrayList<Bitmap> list = new ArrayList<>();
+        for (String url_string : urls) {
+            URL url;
+            try {
+                url = new URL(url_string);
+                Bitmap bmp = BitmapFactory.decodeStream(url.openConnection()
+                        .getInputStream());
+                list.add(bmp);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
 
     private ServerConnector() {
 

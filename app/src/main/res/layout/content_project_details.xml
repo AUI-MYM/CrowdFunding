@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.ProjectDetailActivity"
+    tools:showIn="@layout/activity_project_details">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Title of the Project"
+            android:id="@+id/designViewTitle"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="-20dp"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="by MertErgun"
+            android:id="@+id/textViewDesignerName"
+            android:layout_gravity="right"
+            android:singleLine="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/project_detail_left_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:src="@drawable/arrow_left"
+                android:background="@null" />
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:padding="6dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/placeholder"
+                    android:contentDescription="Sample Photo"
+                    android:scaleType="centerCrop" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/image_frame"/>
+
+            </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/project_detail_right_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:src="@drawable/arrow_right"
+                android:background="@null" />
+        </LinearLayout>
+
+        <Gallery
+            android:id="@+id/gallery1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            />
+
+        <include layout="@layout/project_detail_stat"></include>
+        <include layout="@layout/project_detail_info"></include>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
