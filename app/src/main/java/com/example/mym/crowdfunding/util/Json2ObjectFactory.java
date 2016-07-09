@@ -26,13 +26,14 @@ public class Json2ObjectFactory {
     private final static String number_of_projects_published = "projects/num_projects_published/";
     private final static String number_of_projects_finished = "projects/num_projects_finished/";
     private final static String view_projects_by_user = "projects/view_projects_by_user/";
+    private final static String view_cart_by_user = "orders/view_preorder_by_users_id/";
+    private final static String view_comment_by_project = "comment/view_comments/";
+    private final static String view_address_by_id = "users/view_address_by_id/";
 
     public static ArrayList<ProjectsEntity> get_all_projects_home_page() {
 
         ServerConnector sc = ServerConnector.getInstance();
-
         try {
-
             ArrayList<ProjectsEntity> projectsEntities = new ArrayList<>();
             Gson gson = new GsonBuilder()
                     .setDateFormat("yyyy-MM-dd HH:mm:ss")
@@ -51,7 +52,6 @@ public class Json2ObjectFactory {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -59,7 +59,6 @@ public class Json2ObjectFactory {
         ServerConnector sc = ServerConnector.getInstance();
 
         try {
-
             ArrayList<UsersEntity> user;
             Gson gson = new GsonBuilder()
                     .setDateFormat("yyyy-MM-dd HH:mm:ss")
@@ -73,7 +72,6 @@ public class Json2ObjectFactory {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -102,6 +100,27 @@ public class Json2ObjectFactory {
     public static ArrayList<ProjectsEntity> get_projects_by_user(int id) {
 
         ServerConnector sc = ServerConnector.getInstance();
+        try {
+
+            ArrayList<ProjectsEntity> projectsEntities = new ArrayList<>();
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create();
+            Type type = new TypeToken<ArrayList<ProjectsEntity>>() {
+            }.getType();
+            JSONObject json = sc.getJSONFromUrl(view_cart_by_user + id);
+            JSONArray jsonArray = json.getJSONArray("rows");
+            projectsEntities = gson.fromJson(jsonArray.toString(), type);
+            return projectsEntities;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ArrayList<ProjectsEntity> get_cart_by_user(int id) {
+
+        ServerConnector sc = ServerConnector.getInstance();
 
         try {
 
@@ -118,7 +137,54 @@ public class Json2ObjectFactory {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return null;
     }
+    //
+
+    public static ArrayList<ProjectsEntity> get_comment_by_project(int id) {
+
+        ServerConnector sc = ServerConnector.getInstance();
+
+        try {
+
+            ArrayList<ProjectsEntity> projectsEntities = new ArrayList<>();
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create();
+            Type type = new TypeToken<ArrayList<ProjectsEntity>>() {
+            }.getType();
+            JSONObject json = sc.getJSONFromUrl(view_comment_by_project + id);
+            JSONArray jsonArray = json.getJSONArray("rows");
+            projectsEntities = gson.fromJson(jsonArray.toString(), type);
+            return projectsEntities;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    //
+
+    public static ArrayList<ProjectsEntity> get_address_by_id(int id) {
+
+        ServerConnector sc = ServerConnector.getInstance();
+
+        try {
+
+            ArrayList<ProjectsEntity> projectsEntities = new ArrayList<>();
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create();
+            Type type = new TypeToken<ArrayList<ProjectsEntity>>() {
+            }.getType();
+            JSONObject json = sc.getJSONFromUrl(view_address_by_id + id);
+            JSONArray jsonArray = json.getJSONArray("rows");
+            projectsEntities = gson.fromJson(jsonArray.toString(), type);
+            return projectsEntities;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    //
+
 }
