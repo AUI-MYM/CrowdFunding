@@ -131,4 +131,6 @@
     <string name="size_selection">Size..</string>
     <string name="description">Description</string>
     <string name="short_bio">Short bio</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_signup">Signup</string>
 </resources>

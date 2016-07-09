@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
-
+    useLibrary  'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.example.mym.crowdfunding"
         minSdkVersion 21
@@ -30,4 +30,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
 }

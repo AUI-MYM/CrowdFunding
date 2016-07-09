@@ -80,17 +80,17 @@ public class MainActivity extends AppCompatActivity
 
         rAdapter = new ProjectsRecyclerAdapter(projectsEntities);
 
-                    recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(View view, int position) {
-                            ProjectsEntity project = rAdapter.get(position);
-                            Gson gson = new Gson();
-                            String json = gson.toJson(project, ProjectsEntity.class);
-                            Intent intent = new Intent(MainActivity.this, ProjectDetailActivity.class);
-                            intent.putExtra(Commons.project_detail, json);
-                            startActivity(intent);
-                        }
-                    }));
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                ProjectsEntity project = rAdapter.get(position);
+                Gson gson = new Gson();
+                String json = gson.toJson(project, ProjectsEntity.class);
+                Intent intent = new Intent(MainActivity.this, ProjectDetailActivity.class);
+                intent.putExtra(Commons.project_detail, json);
+                startActivity(intent);
+            }
+        }));
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -157,13 +157,15 @@ public class MainActivity extends AppCompatActivity
 
     public class AsyncLoadProjects extends AsyncTask<String, Void, Void> {
         private OnTaskCompleted onTaskCompleted;
+
         public AsyncLoadProjects(OnTaskCompleted otc) {
             super();
             onTaskCompleted = otc;
         }
+
         @Override
         protected Void doInBackground(String... params) {
-            projectsEntities =  Json2ObjectFactory.get_all_projects_home_page();
+            projectsEntities = Json2ObjectFactory.get_all_projects_home_page();
             try {
                 //To see the loading effect
                 Thread.sleep(1000);

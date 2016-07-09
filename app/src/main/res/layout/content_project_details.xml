@@ -90,5 +90,6 @@
         <include layout="@layout/project_detail_stat"></include>
         <include layout="@layout/project_detail_info"></include>
 
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

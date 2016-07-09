@@ -9,113 +9,119 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mym.crowdfunding.activities.DesignerActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/profile_view_avatar"
-                android:layout_weight="0.5"
-                android:layout_gravity="center"
-                android:src="@drawable/avatar_placeholder"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.6"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp">
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/profile_view_avatar"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Name Surname"
-                    android:id="@+id/profile_name_text_view"
-                    android:singleLine="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="City"
-                    android:id="@+id/profile_view_city"
-                    android:textStyle="italic" />
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/avatar_placeholder" />
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:id="@+id/profile_name_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="Name Surname"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                    <TextView
+                        android:id="@+id/profile_view_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="City"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="italic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:divider="@drawable/divider"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/profile_view_projects_number"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:text="Medium Text"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                        <TextView
+                            android:id="@+id/profile_view_realized_number"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:text="Medium Text"
+                            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/profile_view_website"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:autoLink="web"
+                        android:ellipsize="marquee"
+                        android:singleLine="true"
+                        android:text="www.mertergun.com"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/profile_view_bio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:divider="@drawable/divider">
+                    android:layout_margin="15dp"
+                    android:background="@drawable/project_detail_text_background"
+                    android:paddingTop="20dp"
+                    android:text="@string/action_settings"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Medium Text"
-                        android:id="@+id/profile_view_projects_number"
-                        android:layout_weight="0.5" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Medium Text"
-                        android:id="@+id/profile_view_realized_number"
-                        android:layout_weight="0.5" />
-
-
-
-                </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="www.mertergun.com"
-                    android:id="@+id/profile_view_website"
-                    android:singleLine="true"
-                    android:autoLink="web"
-                    android:ellipsize="marquee"/>
-            </LinearLayout>
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/short_bio"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25sp" />
+            </FrameLayout>
+
+            <include layout="@layout/project_vertical_list"></include>
+
         </LinearLayout>
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/profile_view_bio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:background="@drawable/project_detail_text_background"
-                android:paddingTop="20dp"
-                android:text="@string/action_settings"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/short_bio"
-                android:textColor="@color/colorAccent"
-                android:textSize="25sp" />
-        </FrameLayout>
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/project_list_designer_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

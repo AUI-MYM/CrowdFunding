@@ -51,7 +51,7 @@ public class ProjectDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_details);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_project_detail);
         setSupportActionBar(toolbar);
         setProjectFromIntent();
         setProgressDialogView();
@@ -78,7 +78,8 @@ public class ProjectDetailActivity extends AppCompatActivity {
         title.setText(projectsEntity.getTitle());
         price.setText(projectsEntity.getPrice() + "€");
         funded.setText(projectsEntity.getSale_current() + "/" + projectsEntity.getSale_minimum());
-        togo.setText(projectsEntity.get_days_togo());
+        //togo.setText(projectsEntity.get_days_togo());
+        togo.setText("3 days");
         description.setText(projectsEntity.getDescription());
 
         setSpinnerViewForSize();

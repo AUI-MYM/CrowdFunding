@@ -4,18 +4,18 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.mym.crowdfunding.R;
+import com.example.mym.crowdfunding.adapters.ProjectsListAdapter;
 import com.example.mym.crowdfunding.adapters.ProjectsRecyclerAdapter;
 import com.example.mym.crowdfunding.listeners.OnTaskCompleted;
-import com.example.mym.crowdfunding.listeners.RecyclerItemClickListener;
 import com.example.mym.crowdfunding.model.ProjectsEntity;
 import com.example.mym.crowdfunding.model.UsersEntity;
 import com.example.mym.crowdfunding.util.Commons;
@@ -24,8 +24,6 @@ import com.example.mym.crowdfunding.util.ServerConnector;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class DesignerActivity extends AppCompatActivity {
@@ -33,7 +31,7 @@ public class DesignerActivity extends AppCompatActivity {
     private ArrayList<ProjectsEntity> projectsEntities;
     private int number_of_projects;
     private int number_of_projects_finished;
-    private ProjectsRecyclerAdapter rAdapter;
+    private ProjectsListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,29 +83,38 @@ public class DesignerActivity extends AppCompatActivity {
         TextView projects = (TextView) findViewById(R.id.profile_view_projects_number);
         projects.setText("projects: "  + number_of_projects);
         TextView projects_finished = (TextView) findViewById(R.id.profile_view_realized_number);
-        projects_finished.setText("projects: "  + number_of_projects_finished);
+        projects_finished.setText("realized: "  + number_of_projects_finished);
+        setProjectListView();
+    }
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.project_list_designer_view);
-        recyclerView.setHasFixedSize(true);
-        rAdapter = new ProjectsRecyclerAdapter(projectsEntities);
-
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+    private void setProjectListView() {
+        adapter = new ProjectsListAdapter(this, R.layout.project_card, projectsEntities);
+        ListView listView = (ListView) findViewById(R.id.list_view_project);/*
+        listView.setOnTouchListener(new View.OnTouchListener() {
+            // Setting on Touch Listener for handling the touch inside ScrollView
             @Override
-            public void onItemClick(View view, int position) {
-                ProjectsEntity project = rAdapter.get(position);
+            public boolean onTouch(View v, MotionEvent event) {
+                // Disallow the touch request for parent scroll on touch of child view
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });*/
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ProjectsEntity project = adapter.get(position);
                 Gson gson = new Gson();
                 String json = gson.toJson(project, ProjectsEntity.class);
                 Intent intent = new Intent(DesignerActivity.this, ProjectDetailActivity.class);
                 intent.putExtra(Commons.project_detail, json);
                 startActivity(intent);
             }
-        }));
+        });
+        listView.setAdapter(adapter);
+        ProjectsListAdapter.setListViewHeightBasedOnChildren(listView);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(gridLayoutManager);
-
-        recyclerView.setAdapter(rAdapter);
     }
+
     public class AsyncLoadDesignerContent extends AsyncTask<String, Void, Void> {
         private OnTaskCompleted onTaskCompleted;
         public AsyncLoadDesignerContent(OnTaskCompleted otc) {
@@ -127,4 +134,6 @@ public class DesignerActivity extends AppCompatActivity {
             onTaskCompleted.taskCompleted(null);
         }
     }
+
+
 }
