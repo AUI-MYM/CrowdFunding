@@ -23,6 +23,9 @@ import java.util.Map;
 public class Json2ObjectFactory {
     private final static String view_all_projects = "projects/view_projects_homepage";
     private final static String view_designer = "users/view_designer/";
+    private final static String number_of_projects_published = "projects/num_projects_published/";
+    private final static String number_of_projects_finished = "projects/num_projects_finished/";
+    private final static String view_projects_by_user = "projects/view_projects_by_user/";
 
     public static ArrayList<ProjectsEntity> get_all_projects_home_page() {
 
@@ -61,12 +64,57 @@ public class Json2ObjectFactory {
             Gson gson = new GsonBuilder()
                     .setDateFormat("yyyy-MM-dd HH:mm:ss")
                     .create();
-            Type type = new TypeToken<ArrayList<UsersEntity> >() {
+            Type type = new TypeToken<ArrayList<UsersEntity>>() {
             }.getType();
             JSONObject json = sc.getJSONFromUrl(view_designer + id);
             JSONArray jsonArray = json.getJSONArray("rows");
             user = gson.fromJson(jsonArray.toString(), type);
             return user.get(0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static int getNumberOfProjects(int id) {
+        ServerConnector sc = ServerConnector.getInstance();
+        try {
+            JSONObject json = sc.getJSONFromUrl(number_of_projects_published + id);
+            return json.getInt("row");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static int getNumberOfFinishedProjects(int id) {
+        ServerConnector sc = ServerConnector.getInstance();
+        try {
+            JSONObject json = sc.getJSONFromUrl(number_of_projects_finished + id);
+            return json.getInt("row");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static ArrayList<ProjectsEntity> get_projects_by_user(int id) {
+
+        ServerConnector sc = ServerConnector.getInstance();
+
+        try {
+
+            ArrayList<ProjectsEntity> projectsEntities = new ArrayList<>();
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    .create();
+            Type type = new TypeToken<ArrayList<ProjectsEntity>>() {
+            }.getType();
+            JSONObject json = sc.getJSONFromUrl(view_projects_by_user + id);
+            JSONArray jsonArray = json.getJSONArray("rows");
+            projectsEntities = gson.fromJson(jsonArray.toString(), type);
+            return projectsEntities;
         } catch (JSONException e) {
             e.printStackTrace();
         }

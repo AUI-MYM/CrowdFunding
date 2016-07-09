@@ -1,6 +1,7 @@
 package com.example.mym.crowdfunding.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.Image;
 import android.os.AsyncTask;
@@ -30,12 +31,12 @@ import com.example.mym.crowdfunding.util.Commons;
 import com.example.mym.crowdfunding.util.Json2ObjectFactory;
 import com.example.mym.crowdfunding.util.ServerConnector;
 import com.google.gson.Gson;
-
-import org.w3c.dom.Text;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
 public class ProjectDetailActivity extends AppCompatActivity {
+    public static final String designer_view_extra = "com.example.projectdetail.designer.json";
     protected Gallery gallery;
     protected ImageView selectedImage;
     protected ProjectsEntity projectsEntity;
@@ -43,7 +44,7 @@ public class ProjectDetailActivity extends AppCompatActivity {
     protected int imagePosition;
     protected ArrayList<Bitmap> projectImages;
     private ProgressDialog progressDialog;
-    private int current_quantity = 0;
+    private int current_quantity = 1;
     protected EditText quantity_text;
 
     @Override
@@ -118,7 +119,17 @@ public class ProjectDetailActivity extends AppCompatActivity {
         Glide.with(this).load(ServerConnector.server_avatar_url + designerUser.getUsers_id() + ".jpg").crossFade().fitCenter()
                 .into(avatar_designer);
         Button seeInfo = (Button) findViewById(R.id.designer_profile_view);
-        seeInfo.setOnClickListener(null); // TODO ACTION DESIGNER PROFILE
+        seeInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Gson gson = new GsonBuilder()
+                        .setDateFormat("yyyy-MM-dd HH:mm:ss")
+                        .create();
+                Intent intent = new Intent(ProjectDetailActivity.this, DesignerActivity.class);
+                intent.putExtra(designer_view_extra, gson.toJson(designerUser));
+                startActivity(intent);
+            }
+        });
     }
 
     private void setLeftAndRightButtonListeners() {
