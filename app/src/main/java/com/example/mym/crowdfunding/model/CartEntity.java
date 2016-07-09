@@ -7,52 +7,52 @@ import java.sql.Timestamp;
  * Created by Mert on 6/11/2016.
  */
 public class CartEntity {
-    private int cartId;
-    private int cartProjectsId;
-    private int cartUsersId;
-    private int sizeId;
-    private Integer colorId;
+    private int cart_id;
+    private int cart_projectsId;
+    private int cart_usersId;
+    private int size_id;
+    private Integer color_id;
     private Byte quantity;
-    private Timestamp dateUpdate;
+    private Timestamp date_update;
 
-    public int getCartId() {
-        return cartId;
+    public int getCart_id() {
+        return cart_id;
     }
 
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
+    public void setCart_id(int cart_id) {
+        this.cart_id = cart_id;
     }
 
-    public int getCartProjectsId() {
-        return cartProjectsId;
+    public int getCart_projectsId() {
+        return cart_projectsId;
     }
 
-    public void setCartProjectsId(int cartProjectsId) {
-        this.cartProjectsId = cartProjectsId;
+    public void setCart_projectsId(int cart_projectsId) {
+        this.cart_projectsId = cart_projectsId;
     }
 
-    public int getCartUsersId() {
-        return cartUsersId;
+    public int getCart_usersId() {
+        return cart_usersId;
     }
 
-    public void setCartUsersId(int cartUsersId) {
-        this.cartUsersId = cartUsersId;
+    public void setCart_usersId(int cart_usersId) {
+        this.cart_usersId = cart_usersId;
     }
 
-    public int getSizeId() {
-        return sizeId;
+    public int getSize_id() {
+        return size_id;
     }
 
-    public void setSizeId(int sizeId) {
-        this.sizeId = sizeId;
+    public void setSize_id(int size_id) {
+        this.size_id = size_id;
     }
 
-    public Integer getColorId() {
-        return colorId;
+    public Integer getColor_id() {
+        return color_id;
     }
 
-    public void setColorId(Integer colorId) {
-        this.colorId = colorId;
+    public void setColor_id(Integer color_id) {
+        this.color_id = color_id;
     }
 
     public Byte getQuantity() {
@@ -63,12 +63,12 @@ public class CartEntity {
         this.quantity = quantity;
     }
 
-    public Timestamp getDateUpdate() {
-        return dateUpdate;
+    public Timestamp getDate_update() {
+        return date_update;
     }
 
-    public void setDateUpdate(Timestamp dateUpdate) {
-        this.dateUpdate = dateUpdate;
+    public void setDate_update(Timestamp date_update) {
+        this.date_update = date_update;
     }
 
     @Override
@@ -78,25 +78,25 @@ public class CartEntity {
 
         CartEntity that = (CartEntity) o;
 
-        if (cartId != that.cartId) return false;
-        if (cartProjectsId != that.cartProjectsId) return false;
-        if (cartUsersId != that.cartUsersId) return false;
-        if (sizeId != that.sizeId) return false;
-        if (colorId != null ? !colorId.equals(that.colorId) : that.colorId != null) return false;
+        if (cart_id != that.cart_id) return false;
+        if (cart_projectsId != that.cart_projectsId) return false;
+        if (cart_usersId != that.cart_usersId) return false;
+        if (size_id != that.size_id) return false;
+        if (color_id != null ? !color_id.equals(that.color_id) : that.color_id != null) return false;
         if (quantity != null ? !quantity.equals(that.quantity) : that.quantity != null) return false;
-        return dateUpdate != null ? dateUpdate.equals(that.dateUpdate) : that.dateUpdate == null;
+        return date_update != null ? date_update.equals(that.date_update) : that.date_update == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = cartId;
-        result = 31 * result + cartProjectsId;
-        result = 31 * result + cartUsersId;
-        result = 31 * result + sizeId;
-        result = 31 * result + (colorId != null ? colorId.hashCode() : 0);
+        int result = cart_id;
+        result = 31 * result + cart_projectsId;
+        result = 31 * result + cart_usersId;
+        result = 31 * result + size_id;
+        result = 31 * result + (color_id != null ? color_id.hashCode() : 0);
         result = 31 * result + (quantity != null ? quantity.hashCode() : 0);
-        result = 31 * result + (dateUpdate != null ? dateUpdate.hashCode() : 0);
+        result = 31 * result + (date_update != null ? date_update.hashCode() : 0);
         return result;
     }
 }

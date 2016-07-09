@@ -5,15 +5,15 @@ package com.example.mym.crowdfunding.model;
  * Created by Mert on 6/11/2016.
  */
 public class ColorEntity {
-    private int colorId;
+    private int color_id;
     private String name;
 
-    public int getColorId() {
-        return colorId;
+    public int getColor_id() {
+        return color_id;
     }
 
-    public void setColorId(int colorId) {
-        this.colorId = colorId;
+    public void setColor_id(int color_id) {
+        this.color_id = color_id;
     }
 
     public String getName() {
@@ -31,14 +31,14 @@ public class ColorEntity {
 
         ColorEntity that = (ColorEntity) o;
 
-        if (colorId != that.colorId) return false;
+        if (color_id != that.color_id) return false;
         return name != null ? name.equals(that.name) : that.name == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = colorId;
+        int result = color_id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }

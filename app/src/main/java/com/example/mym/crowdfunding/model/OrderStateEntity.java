@@ -5,15 +5,15 @@ package com.example.mym.crowdfunding.model;
  * Created by Mert on 6/11/2016.
  */
 public class OrderStateEntity {
-    private int orderStateId;
+    private int order_state_id;
     private String name;
 
-    public int getOrderStateId() {
-        return orderStateId;
+    public int getOrder_state_id() {
+        return order_state_id;
     }
 
-    public void setOrderStateId(int orderStateId) {
-        this.orderStateId = orderStateId;
+    public void setOrder_state_id(int order_state_id) {
+        this.order_state_id = order_state_id;
     }
 
     public String getName() {
@@ -31,14 +31,14 @@ public class OrderStateEntity {
 
         OrderStateEntity that = (OrderStateEntity) o;
 
-        if (orderStateId != that.orderStateId) return false;
+        if (order_state_id != that.order_state_id) return false;
         return name != null ? name.equals(that.name) : that.name == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = orderStateId;
+        int result = order_state_id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }

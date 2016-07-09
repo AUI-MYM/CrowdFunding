@@ -6,55 +6,55 @@ import java.sql.Timestamp;
  * Created by Mert on 6/11/2016.
  */
 public class OrdersEntity {
-    private int ordersId;
-    private int ordersUsersId;
-    private int ordersProjectsId;
-    private int sizeId;
-    private int colorId;
+    private int orders_id;
+    private int orders_users_id;
+    private int orders_projects_id;
+    private int size_id;
+    private int color_id;
     private Byte quantity;
-    private Timestamp dateCreate;
-    private Integer ordersOrderStateId;
-    private int shippingAddressId;
-    private Integer billingAddressId;
+    private Timestamp date_create;
+    private Integer orders_order_state_id;
+    private int shipping_address_id;
+    private Integer billing_address_id;
 
-    public int getOrdersId() {
-        return ordersId;
+    public int getOrders_id() {
+        return orders_id;
     }
 
-    public void setOrdersId(int ordersId) {
-        this.ordersId = ordersId;
+    public void setOrders_id(int orders_id) {
+        this.orders_id = orders_id;
     }
 
-    public int getOrdersUsersId() {
-        return ordersUsersId;
+    public int getOrders_users_id() {
+        return orders_users_id;
     }
 
-    public void setOrdersUsersId(int ordersUsersId) {
-        this.ordersUsersId = ordersUsersId;
+    public void setOrders_users_id(int orders_users_id) {
+        this.orders_users_id = orders_users_id;
     }
 
-    public int getOrdersProjectsId() {
-        return ordersProjectsId;
+    public int getOrders_projects_id() {
+        return orders_projects_id;
     }
 
-    public void setOrdersProjectsId(int ordersProjectsId) {
-        this.ordersProjectsId = ordersProjectsId;
+    public void setOrders_projects_id(int orders_projects_id) {
+        this.orders_projects_id = orders_projects_id;
     }
 
-    public int getSizeId() {
-        return sizeId;
+    public int getSize_id() {
+        return size_id;
     }
 
-    public void setSizeId(int sizeId) {
-        this.sizeId = sizeId;
+    public void setSize_id(int size_id) {
+        this.size_id = size_id;
     }
 
-    public int getColorId() {
-        return colorId;
+    public int getColor_id() {
+        return color_id;
     }
 
-    public void setColorId(int colorId) {
-        this.colorId = colorId;
+    public void setColor_id(int color_id) {
+        this.color_id = color_id;
     }
 
     public Byte getQuantity() {
@@ -65,36 +65,36 @@ public class OrdersEntity {
         this.quantity = quantity;
     }
 
-    public Timestamp getDateCreate() {
-        return dateCreate;
+    public Timestamp getDate_create() {
+        return date_create;
     }
 
-    public void setDateCreate(Timestamp dateCreate) {
-        this.dateCreate = dateCreate;
+    public void setDate_create(Timestamp date_create) {
+        this.date_create = date_create;
     }
 
-    public Integer getOrdersOrderStateId() {
-        return ordersOrderStateId;
+    public Integer getOrders_order_state_id() {
+        return orders_order_state_id;
     }
 
-    public void setOrdersOrderStateId(Integer ordersOrderStateId) {
-        this.ordersOrderStateId = ordersOrderStateId;
+    public void setOrders_order_state_id(Integer orders_order_state_id) {
+        this.orders_order_state_id = orders_order_state_id;
     }
 
-    public int getShippingAddressId() {
-        return shippingAddressId;
+    public int getShipping_address_id() {
+        return shipping_address_id;
     }
 
-    public void setShippingAddressId(int shippingAddressId) {
-        this.shippingAddressId = shippingAddressId;
+    public void setShipping_address_id(int shipping_address_id) {
+        this.shipping_address_id = shipping_address_id;
     }
 
-    public Integer getBillingAddressId() {
-        return billingAddressId;
+    public Integer getBilling_address_id() {
+        return billing_address_id;
     }
 
-    public void setBillingAddressId(Integer billingAddressId) {
-        this.billingAddressId = billingAddressId;
+    public void setBilling_address_id(Integer billing_address_id) {
+        this.billing_address_id = billing_address_id;
     }
 
     @Override
@@ -104,32 +104,32 @@ public class OrdersEntity {
 
         OrdersEntity that = (OrdersEntity) o;
 
-        if (ordersId != that.ordersId) return false;
-        if (ordersUsersId != that.ordersUsersId) return false;
-        if (ordersProjectsId != that.ordersProjectsId) return false;
-        if (sizeId != that.sizeId) return false;
-        if (colorId != that.colorId) return false;
-        if (shippingAddressId != that.shippingAddressId) return false;
+        if (orders_id != that.orders_id) return false;
+        if (orders_users_id != that.orders_users_id) return false;
+        if (orders_projects_id != that.orders_projects_id) return false;
+        if (size_id != that.size_id) return false;
+        if (color_id != that.color_id) return false;
+        if (shipping_address_id != that.shipping_address_id) return false;
         if (quantity != null ? !quantity.equals(that.quantity) : that.quantity != null) return false;
-        if (dateCreate != null ? !dateCreate.equals(that.dateCreate) : that.dateCreate != null) return false;
-        if (ordersOrderStateId != null ? !ordersOrderStateId.equals(that.ordersOrderStateId) : that.ordersOrderStateId != null)
+        if (date_create != null ? !date_create.equals(that.date_create) : that.date_create != null) return false;
+        if (orders_order_state_id != null ? !orders_order_state_id.equals(that.orders_order_state_id) : that.orders_order_state_id != null)
             return false;
-        return billingAddressId != null ? billingAddressId.equals(that.billingAddressId) : that.billingAddressId == null;
+        return billing_address_id != null ? billing_address_id.equals(that.billing_address_id) : that.billing_address_id == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = ordersId;
-        result = 31 * result + ordersUsersId;
-        result = 31 * result + ordersProjectsId;
-        result = 31 * result + sizeId;
-        result = 31 * result + colorId;
+        int result = orders_id;
+        result = 31 * result + orders_users_id;
+        result = 31 * result + orders_projects_id;
+        result = 31 * result + size_id;
+        result = 31 * result + color_id;
         result = 31 * result + (quantity != null ? quantity.hashCode() : 0);
-        result = 31 * result + (dateCreate != null ? dateCreate.hashCode() : 0);
-        result = 31 * result + (ordersOrderStateId != null ? ordersOrderStateId.hashCode() : 0);
-        result = 31 * result + shippingAddressId;
-        result = 31 * result + (billingAddressId != null ? billingAddressId.hashCode() : 0);
+        result = 31 * result + (date_create != null ? date_create.hashCode() : 0);
+        result = 31 * result + (orders_order_state_id != null ? orders_order_state_id.hashCode() : 0);
+        result = 31 * result + shipping_address_id;
+        result = 31 * result + (billing_address_id != null ? billing_address_id.hashCode() : 0);
         return result;
     }
 }

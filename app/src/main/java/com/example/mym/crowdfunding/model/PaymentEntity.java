@@ -5,19 +5,19 @@ package com.example.mym.crowdfunding.model;
  * Created by Mert on 6/11/2016.
  */
 public class PaymentEntity {
-    private int paymentId;
+    private int payment_id;
     private String cardholder;
-    private Integer paymentTypeId;
+    private Integer payment_type_id;
     private String account;
     private Byte month;
     private Byte year;
 
-    public int getPaymentId() {
-        return paymentId;
+    public int getPayment_id() {
+        return payment_id;
     }
 
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
+    public void setPayment_id(int payment_id) {
+        this.payment_id = payment_id;
     }
 
     public String getCardholder() {
@@ -28,12 +28,12 @@ public class PaymentEntity {
         this.cardholder = cardholder;
     }
 
-    public Integer getPaymentTypeId() {
-        return paymentTypeId;
+    public Integer getPayment_type_id() {
+        return payment_type_id;
     }
 
-    public void setPaymentTypeId(Integer paymentTypeId) {
-        this.paymentTypeId = paymentTypeId;
+    public void setPayment_type_id(Integer payment_type_id) {
+        this.payment_type_id = payment_type_id;
     }
 
     public String getAccount() {
@@ -67,9 +67,9 @@ public class PaymentEntity {
 
         PaymentEntity that = (PaymentEntity) o;
 
-        if (paymentId != that.paymentId) return false;
+        if (payment_id != that.payment_id) return false;
         if (cardholder != null ? !cardholder.equals(that.cardholder) : that.cardholder != null) return false;
-        if (paymentTypeId != null ? !paymentTypeId.equals(that.paymentTypeId) : that.paymentTypeId != null)
+        if (payment_type_id != null ? !payment_type_id.equals(that.payment_type_id) : that.payment_type_id != null)
             return false;
         if (account != null ? !account.equals(that.account) : that.account != null) return false;
         if (month != null ? !month.equals(that.month) : that.month != null) return false;
@@ -79,9 +79,9 @@ public class PaymentEntity {
 
     @Override
     public int hashCode() {
-        int result = paymentId;
+        int result = payment_id;
         result = 31 * result + (cardholder != null ? cardholder.hashCode() : 0);
-        result = 31 * result + (paymentTypeId != null ? paymentTypeId.hashCode() : 0);
+        result = 31 * result + (payment_type_id != null ? payment_type_id.hashCode() : 0);
         result = 31 * result + (account != null ? account.hashCode() : 0);
         result = 31 * result + (month != null ? month.hashCode() : 0);
         result = 31 * result + (year != null ? year.hashCode() : 0);

@@ -5,23 +5,23 @@ package com.example.mym.crowdfunding.model;
  * Created by Mert on 6/11/2016.
  */
 public class FollowersEntity {
-    private int designerId;
-    private int followerId;
+    private int designer_id;
+    private int follower_id;
 
-    public int getDesignerId() {
-        return designerId;
+    public int getDesigner_id() {
+        return designer_id;
     }
 
-    public void setDesignerId(int designerId) {
-        this.designerId = designerId;
+    public void setDesigner_id(int designer_id) {
+        this.designer_id = designer_id;
     }
 
-    public int getFollowerId() {
-        return followerId;
+    public int getFollower_id() {
+        return follower_id;
     }
 
-    public void setFollowerId(int followerId) {
-        this.followerId = followerId;
+    public void setFollower_id(int follower_id) {
+        this.follower_id = follower_id;
     }
 
     @Override
@@ -31,15 +31,15 @@ public class FollowersEntity {
 
         FollowersEntity that = (FollowersEntity) o;
 
-        if (designerId != that.designerId) return false;
-        return followerId == that.followerId;
+        if (designer_id != that.designer_id) return false;
+        return follower_id == that.follower_id;
 
     }
 
     @Override
     public int hashCode() {
-        int result = designerId;
-        result = 31 * result + followerId;
+        int result = designer_id;
+        result = 31 * result + follower_id;
         return result;
     }
 }

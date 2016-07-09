@@ -5,20 +5,20 @@ package com.example.mym.crowdfunding.model;
  * Created by Mert on 6/11/2016.
  */
 public class AddressEntity {
-    private int addressId;
+    private int address_id;
     private String firstname;
     private String lastname;
     private String street;
     private String country;
     private String city;
-    private Integer zipCode;
+    private Integer zip_code;
 
-    public int getAddressId() {
-        return addressId;
+    public int getAddress_id() {
+        return address_id;
     }
 
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
+    public void setAddress_id(int address_id) {
+        this.address_id = address_id;
     }
 
     public String getFirstname() {
@@ -61,12 +61,12 @@ public class AddressEntity {
         this.city = city;
     }
 
-    public Integer getZipCode() {
-        return zipCode;
+    public Integer getZip_code() {
+        return zip_code;
     }
 
-    public void setZipCode(Integer zipCode) {
-        this.zipCode = zipCode;
+    public void setZip_code(Integer zip_code) {
+        this.zip_code = zip_code;
     }
 
     @Override
@@ -76,25 +76,25 @@ public class AddressEntity {
 
         AddressEntity that = (AddressEntity) o;
 
-        if (addressId != that.addressId) return false;
+        if (address_id != that.address_id) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         if (lastname != null ? !lastname.equals(that.lastname) : that.lastname != null) return false;
         if (street != null ? !street.equals(that.street) : that.street != null) return false;
         if (country != null ? !country.equals(that.country) : that.country != null) return false;
         if (city != null ? !city.equals(that.city) : that.city != null) return false;
-        return zipCode != null ? zipCode.equals(that.zipCode) : that.zipCode == null;
+        return zip_code != null ? zip_code.equals(that.zip_code) : that.zip_code == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = addressId;
+        int result = address_id;
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         result = 31 * result + (street != null ? street.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
-        result = 31 * result + (zipCode != null ? zipCode.hashCode() : 0);
+        result = 31 * result + (zip_code != null ? zip_code.hashCode() : 0);
         return result;
     }
 }

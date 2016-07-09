@@ -5,23 +5,23 @@ package com.example.mym.crowdfunding.model;
  * Created by Mert on 6/11/2016.
  */
 public class ProjectsSizeAvailableEntity {
-    private int projectsId;
-    private int sizeId;
+    private int projects_id;
+    private int size_id;
 
-    public int getProjectsId() {
-        return projectsId;
+    public int getProjects_id() {
+        return projects_id;
     }
 
-    public void setProjectsId(int projectsId) {
-        this.projectsId = projectsId;
+    public void setProjects_id(int projects_id) {
+        this.projects_id = projects_id;
     }
 
-    public int getSizeId() {
-        return sizeId;
+    public int getSize_id() {
+        return size_id;
     }
 
-    public void setSizeId(int sizeId) {
-        this.sizeId = sizeId;
+    public void setSize_id(int size_id) {
+        this.size_id = size_id;
     }
 
     @Override
@@ -31,15 +31,15 @@ public class ProjectsSizeAvailableEntity {
 
         ProjectsSizeAvailableEntity that = (ProjectsSizeAvailableEntity) o;
 
-        if (projectsId != that.projectsId) return false;
-        return sizeId == that.sizeId;
+        if (projects_id != that.projects_id) return false;
+        return size_id == that.size_id;
 
     }
 
     @Override
     public int hashCode() {
-        int result = projectsId;
-        result = 31 * result + sizeId;
+        int result = projects_id;
+        result = 31 * result + size_id;
         return result;
     }
 }

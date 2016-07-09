@@ -5,15 +5,15 @@ package com.example.mym.crowdfunding.model;
  * Created by Mert on 6/11/2016.
  */
 public class GroupsEntity {
-    private int groupsId;
+    private int groups_id;
     private String name;
 
-    public int getGroupsId() {
-        return groupsId;
+    public int getGroups_id() {
+        return groups_id;
     }
 
-    public void setGroupsId(int groupsId) {
-        this.groupsId = groupsId;
+    public void setGroups_id(int groups_id) {
+        this.groups_id = groups_id;
     }
 
     public String getName() {
@@ -31,14 +31,14 @@ public class GroupsEntity {
 
         GroupsEntity that = (GroupsEntity) o;
 
-        if (groupsId != that.groupsId) return false;
+        if (groups_id != that.groups_id) return false;
         return name != null ? name.equals(that.name) : that.name == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = groupsId;
+        int result = groups_id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
